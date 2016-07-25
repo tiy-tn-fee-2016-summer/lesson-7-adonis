@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,20 @@
 | Route.resource('user', 'UserController')
 */
 
-const Route = use('Route')
+const Route = use('Route');
 
-Route.on('/').render('welcome')
+Route.on('/').render('welcome');
+
+let visitors = 1;
+
+Route.get('/visitors', function * (req, res) {
+  yield res.sendView('visitors', {
+    url: req.url(),
+    visitors
+  });
+  visitors ++;
+});
+
+Route.get('/contact', function * (req, res) {
+  yield res.sendView('contact');
+});
