@@ -31,6 +31,8 @@ Route.get('/visitors', function * (req, res) {
 
 Route.get('/contact', function * (req, res) {
   const { name, complaint } = yield req.session.all();
+  yield req.session.forget('name');
+  yield req.session.forget('complaint');
 
   yield res.sendView('contact', { name, complaint });
 });
