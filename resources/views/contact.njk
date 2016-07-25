@@ -1,6 +1,13 @@
 {% extends "master" %}
 
 {% block content %}
+  {% if name %}
+    <div class="alert">
+      <h2>Hello {{ name }}!</h2>
+      <p>We're sorry to hear about: {{ complaint }}</p>
+    </div>
+  {% endif %}
+
   <form>
     <input type="text" name="name" placeholder="name">
     <textarea name="complaint" rows="8" cols="40"></textarea>

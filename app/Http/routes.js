@@ -30,5 +30,8 @@ Route.get('/visitors', function * (req, res) {
 });
 
 Route.get('/contact', function * (req, res) {
-  yield res.sendView('contact');
+  const name = req.input('name');
+  const complaint = req.input('complaint');
+
+  yield res.sendView('contact', { name, complaint });
 });
