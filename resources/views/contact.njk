@@ -8,7 +8,9 @@
     </div>
   {% endif %}
 
-  <form>
+  <form action="/contact" method="post">
+    {{ csrfField }}
+
     <input type="text" name="name" placeholder="name">
     <textarea name="complaint" rows="8" cols="40"></textarea>
 

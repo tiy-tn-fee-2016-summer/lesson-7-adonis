@@ -30,8 +30,17 @@ Route.get('/visitors', function * (req, res) {
 });
 
 Route.get('/contact', function * (req, res) {
+  const { name, complaint } = yield req.session.all();
+
+  yield res.sendView('contact', { name, complaint });
+});
+
+Route.post('/contact', function * (req, res) {
   const name = req.input('name');
   const complaint = req.input('complaint');
 
-  yield res.sendView('contact', { name, complaint });
+  // Store our user inputs in the session
+  yield req.session.put({ name, complaint });
+
+  res.redirect('/contact');
 });
