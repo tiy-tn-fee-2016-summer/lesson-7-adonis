@@ -4,6 +4,12 @@ const User = use('App/Model/User');
 const Hash = use('Hash');
 
 class UserController {
+  * index(req, res) {
+    const users = yield User.all();
+
+    res.send(users);
+  }
+
   * new(req, res) {
     yield res.sendView('users.create');
   }
@@ -14,7 +20,7 @@ class UserController {
     const password = req.input('password');
 
     const user = yield User.create({ email, password: yield Hash.make(password) });
-    res.send(user);
+    res.redirect('back');
     // Save User
     // Redirect somewhere
   }

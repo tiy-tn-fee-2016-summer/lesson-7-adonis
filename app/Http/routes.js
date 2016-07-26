@@ -51,3 +51,4 @@ Route.get('/classmates', 'ClassmateController.index');
 
 Route.get('/register', 'UserController.new');
 Route.post('/register', 'UserController.create');
+Route.get('/users', 'UserController.index');
