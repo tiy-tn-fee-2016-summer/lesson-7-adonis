@@ -47,23 +47,4 @@ Route.post('/contact', function * (req, res) {
   res.redirect('/contact');
 });
 
-Route.get('/classmates', function * (req, res) {
-  const Database = use('Database');
-  const firstName = req.input('firstName');
-
-  const query = {};
-  if (firstName) {
-    query['first_name'] = firstName;
-  }
-
-  // Get all posts
-  const classmates = yield Database.table('classmates')
-    .where(query).select();
-  // Send to user...
-  res.send(classmates);
-
-  // Not Using Yield
-  // Database.table('classmates').select().then((classmates) => {
-  //   res.send(classmates);
-  // });
-});
+Route.get('/classmates', 'ClassmateController.index');
