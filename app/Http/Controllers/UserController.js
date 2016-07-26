@@ -19,10 +19,11 @@ class UserController {
     const email = req.input('email');
     const password = req.input('password');
 
-    const user = yield User.create({ email, password: yield Hash.make(password) });
-    res.redirect('back');
     // Save User
-    // Redirect somewhere
+    const user = yield User.create({ email, password: yield Hash.make(password) });
+
+    // Redirect back to the last page
+    res.redirect('back');
   }
 }
 
