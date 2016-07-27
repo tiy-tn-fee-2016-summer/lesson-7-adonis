@@ -1,0 +1,30 @@
+{% extends "master" %}
+
+{% block content %}
+  <h2>Login to my Cool App!</h2>
+  <div class="row">
+    {# Check if there is a flash error message #}
+    {% if old('error') %}
+      <div class="alert danger">
+        <p>{{ old('error') }}</p>
+      </div>
+    {% endif %}
+
+    <form action="/login" method="POST">
+      {{ csrfField }}
+      <div class="form-input">
+        <label for="email">Email</label>
+        {# Refill in the value of the email field with the old input value if it exists #}
+        <input type="text" name="email" id="email" placeholder="Email" value="{{old('email')}}">
+      </div>
+      <div class="form-input">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+      </div>
+
+      <div class="button-group">
+        <button class="button success">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

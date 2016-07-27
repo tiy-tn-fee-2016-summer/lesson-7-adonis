@@ -29,3 +29,14 @@ Route.get('/register', 'RegisterController.new');
  * by using the "create" method from the "RegisterController"
  */
 Route.post('/register', 'RegisterController.create');
+
+/**
+ * App should respond to GET requests to "/login"
+ * by using the "new" method from the "LoginController"
+ */
+Route.get('/login', 'LoginController.new');
+/**
+ * App should respond to POST requests to "/login"
+ * by using the "create" method from the "LoginController"
+ */
+Route.post('/login', 'LoginController.create');
