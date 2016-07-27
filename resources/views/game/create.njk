@@ -1,0 +1,27 @@
+{% extends "master" %}
+
+{% block content %}
+  <div class="row">
+    <h2>List a new Game!</h2>
+
+    <form action="/games" method="POST">
+      {{ csrfField }}
+      <div class="form-input">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Name">
+      </div>
+      <div class="form-input">
+        <label for="arcade">Arcade</label>
+        <input type="checkbox" name="arcade" id="arcade">
+      </div>
+      <div class="form-input">
+        <label for="player_count">Player Count</label>
+        <input type="number" name="player_count" id="player_count" placeholder="Player Count">
+      </div>
+
+      <div class="button-group">
+        <button class="button success">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

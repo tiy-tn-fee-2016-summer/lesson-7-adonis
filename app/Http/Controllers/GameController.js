@@ -3,11 +3,13 @@
 class GameController {
 
   * index(request, response) {
-    //
+    const games = yield VideoGame.all();
+
+    response.send(games);
   }
 
   * create(request, response) {
-    //
+    yield response.sendView('game.create');
   }
 
   * store(request, response) {
