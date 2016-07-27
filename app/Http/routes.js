@@ -19,5 +19,13 @@ const Route = use('Route');
 
 Route.on('/').render('welcome');
 
+/**
+ * App should respond to GET requests to "/register"
+ * by using the "new" method from the "RegisterController"
+ */
 Route.get('/register', 'RegisterController.new');
+/**
+ * App should respond to POST requests to "/register"
+ * by using the "create" method from the "RegisterController"
+ */
 Route.post('/register', 'RegisterController.create');
