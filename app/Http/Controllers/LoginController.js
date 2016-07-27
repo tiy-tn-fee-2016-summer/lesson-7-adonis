@@ -21,7 +21,6 @@ class LoginController {
         // Only make these values available to the next request in this session
         .flash();
       res.redirect('back');
-
     }
   }
 }
