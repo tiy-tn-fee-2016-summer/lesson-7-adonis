@@ -7,7 +7,7 @@ class GameController {
   * index(request, response) {
     const games = yield VideoGame.with('user').fetch();
 
-    response.send(games);
+    yield response.sendView('game.index', { games: games.toJSON() });
   }
 
   * create(request, response) {

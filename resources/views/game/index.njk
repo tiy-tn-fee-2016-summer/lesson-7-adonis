@@ -1,0 +1,25 @@
+{% extends "master" %}
+
+{% block content %}
+  {% if old('success') %}
+    <div class="row">
+      <h2>{{old('success')}}</h2>
+    </div>
+  {% endif %}
+  <div class="row">
+    <h2>Games!</h2>
+
+    <a href="/games/create">Add New Game</a>
+
+    <table>
+      {% for game in games %}
+        <tr>
+          <td>{{game.name}}</td>
+          <td>{{game.arcade}}</td>
+          <td>{{game.player_count}}</td>
+          <td>{{game.user.email}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}
