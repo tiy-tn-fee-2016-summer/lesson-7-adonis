@@ -1,0 +1,23 @@
+{% extends "master" %}
+
+{% block content %}
+  <div class="row">
+    <h2>Register for my Cool App!</h2>
+
+    <form action="/register" method="POST">
+      {{ csrfField }}
+      <div class="form-input">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="Email">
+      </div>
+      <div class="form-input">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+      </div>
+
+      <div class="button-group">
+        <button class="button success">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

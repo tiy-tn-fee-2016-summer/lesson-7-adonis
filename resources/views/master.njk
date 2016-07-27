@@ -9,25 +9,24 @@
   <link rel="stylesheet" type="text/css" href="/dist/app.css">
 </head>
 <body>
-
-  <section>
-    <div class="__wrapper">
-      {% block content %}
-      {% endblock %}
-
-      {% block footer %}
-        <div class="__footer">
-          <ul>
-            <li>
-              <a href="https://twitter.com/intent/tweet?url=http://adonisjs.com&text=I am using AdonisJs, a practical MVC framework for nodejs&hashtags=nodejs,adonisframework" target="_blank"><img src="/assets/twitter.svg"></a>
-            </li>
-            <li>
-              <a href="https://github.com/adonisjs/adonis-framework" target="_blank"><img src="/assets/github.svg"></a>
-            </li>
-          </ul>
-        </div>
-      {% endblock %}
-    </div><!-- end wrapper -->
+  {# header>.top-bar>(.top-bar-left>ul.menu>li>a)+(.top-bar-right>ul.menu.menu--justify-right>li>button.button) #}
+  <header>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li><a href="/">Recipe Book</a></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu menu--justify-right">
+          <li><button type="button" class="button">Search</button></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="main-content">
+    {% block content %}
+    {% endblock %}
   </section>
 </body>
 </html>
